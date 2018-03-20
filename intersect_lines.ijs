@@ -22,5 +22,11 @@ a2=. -~/ {:"1 l2
 b2=. -/ {."1 l2
 c2=. +/ (a2,b2) * {. l2
 d=. det (a1 , a2) ,: (b1 , b2)
-(d %~ (b2 * c1) - b1 * c2),(d %~ (a1 * c2) - a2 * c1)
+(d %~ (c1,b1) -/@:* b2,c2),(d %~ (a1,c1) -/@:* c2,a2)
 )
+
+denom=: -/"2 l1 ,: l2
+
+intersectLines=: [: %/"1 det"2@((det ,."1 -/"2) ,:"2 -/"2)
+
+intersectLines l1 ,: l2
