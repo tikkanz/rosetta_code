@@ -60,11 +60,11 @@ intersectLines=: verb define
   lines=. y
   numerators=. det (det lines) ,."1 |: -/"2 lines
   denominator=. det -/"2 lines
-  numerators %"1 denominator
+  numerators % denominator
 )
 
 findIntersection=: [: %/"1 det@((det ,."1 [: |: -/"2) ,:"2 -/"2)
-findIntersection=: (det ,."1 [: |: -/"2) %"1&det -/"2
+findIntersection=: (det ,."1 [: |: -/"2) %&det -/"2
 
 intersectLines line1 ,: line2
 intersectLines line1 ,: line3
