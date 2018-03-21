@@ -29,3 +29,7 @@ println(intersection(l1, l2))
 l1 = Line(Point{Float64}(0, 0), Point{Float64}(1, 1))
 l2 = Line(Point{Float64}(1, 2), Point{Float64}(4, 5))
 println(intersection(l1, l2))
+
+l1 = Line(Point{Float64}(1, -1), Point{Float64}(4, 4))
+l2 = Line(Point{Float64}(2, 5), Point{Float64}(3, -2))
+println(intersection(l1, l2))
