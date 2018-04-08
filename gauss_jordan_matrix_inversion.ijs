@@ -8,7 +8,8 @@ reduced row echelon form of the matrix after augmenting with an identity matrix.
 )
 
 require 'math/misc/linear'
-augmentR_I1=: ,. e.@i.@#
+augmentR_I1=: ,. =@i.@#
+augmentR_I1=: ,. idmat@#
 matrix_invGJ=: # }."1 gauss_jordan@augmentR_I1
 
 NB. Usage
