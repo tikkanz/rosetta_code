@@ -45,9 +45,8 @@ Intersect0=: 0 _5 5
 
 Intersect0 -: Line0 intersectLinePlane Plane0
 
-
-Plane1=: 3 3 3 ,: 1 2 3
 Line1=: 0 2 4 ,: 3 2 1
+Plane1=: 3 3 3 ,: 1 2 3
 Intersect1=: 0.6 2.4 4.2
 
 Intersect! -: Line1 intersectLinePlane Plane1
