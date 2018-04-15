@@ -53,7 +53,12 @@ normalize=: (% norm)^:(0 < norm)
 dxy=. normalize@({: - {.)
 pv=. -"1 {.
 pvdot=. dxy mp"1 pv
-perpDist=: norm"1@(pv -"1 pvdot */ dxy) f.
+perpDist0=: norm"1@(pv -"1 pvdot */ dxy) f.
+perpDist1=: norm"1@(pv -"1 dxy (mp"1 */ [) pv) f.
+perpDist2=: norm"1@(dxy (] -"1 mp"1 */ [) pv) f.
+perpDist3=: norm"1@(pv ([ -"1 mp"1~ */ ]) dxy) f.
+
+perpDist=: perpDist3
 
 rdp=: verb define
   1 rdp y
