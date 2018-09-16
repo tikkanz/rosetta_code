@@ -58,7 +58,7 @@ perpDist1=: norm"1@(pv -"1 dxy (mp"1 */ [) pv) f.
 perpDist2=: norm"1@(dxy (] -"1 mp"1 */ [) pv) f.
 perpDist3=: norm"1@(pv ([ -"1 mp"1~ */ ]) dxy) f.
 
-perpDist=: perpDist3
+perpDist=: perpDist3 f.
 
 rdp=: verb define
   1 rdp y
@@ -79,6 +79,21 @@ rdp=: verb define
   out
 )
 
+rdp=: verb define
+  1 rdp y
+  :
+  points=. ,:^:(2 > #@$) y
+  epsilon=. x
+  if. 2 > # points do. points return. end.
+
+  NB. point with the maximum distance from line between start and end
+  'imax dmax'=. ((i. , ]) >./) perpDist points
+  if. dmax > epsilon do.
+    epsilon ((}:@rdp (1+imax)&{.) , (rdp imax&}.)) points
+  else.
+    ({. ,: {:) points
+  end.
+)
 
 Note 'Pseudo code from Wikipedia'
 function DouglasPeucker(PointList[], epsilon)
