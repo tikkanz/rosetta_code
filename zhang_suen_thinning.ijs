@@ -10,7 +10,9 @@ frameImg=: 0 ,. 0 , >:@$ {. ]     NB. adds border of 0's to image
 neighbrs=: adverb define          NB. applies verb u to neighbourhoods
   (1 1 ,: 3 3) u;._3 y
 )
- 
+
+neighbrs=: 1 :'(1 1 ,: 3 3)&(u;._3)'  NB. applies verb u to neighbourhoods
+
 Bdry=: 1 2 5 8 7 6 3 0 1          NB. map pixel index to neighbour order 
 getPx=: { ,                       NB. get desired pixels from neighbourhood
 Ap1=: [: +/ 2 </\ Bdry&getPx      NB. count 0->1 transitions
