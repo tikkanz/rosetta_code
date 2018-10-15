@@ -16,6 +16,7 @@ houghTransform=: dyad define
 
 Note 'Example Use:'
    require 'viewmat'
+   require 'media/platimg'  NB. required prior to J8
    require 'web/gethttp graphics/pplatimg'
    Img=: readimg_pplatimg_ jpath 'resource/File_Pentagon.png'
    Img2=: getimg_pplatimg_ gethttp 'http://rosettacode.org/mw/images/c/c6/Pentagon.png'
