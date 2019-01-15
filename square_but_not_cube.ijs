@@ -16,8 +16,8 @@ NB. Alternative more "friendly" component-based solution
 isInt=: = <.                                     NB. are numbers integers
 sqrcube=: 2 3 %:/ ]                              NB. table of 2nd and 3rd roots of y
 isSqrNotCubeofInt=: (*. -.)/@isInt@sqrcube       NB. is y the square but not cube of an integer
-getFirst=: (<. #) {. ]                           NB. get first up to x items from y
-getIdx=: getFirst I.                             NB. get indicies of first up to x ones in boolean y
+getFirst=: ($:~ #) : ((<. #) {. ])               NB. get first up to x items from y
+getIdx=: getFirst@I. : (getFirst I.)             NB. get indicies of first up to x ones in boolean y
 
 process_more=: adverb def '] , [: u (i.200) + #@]'  NB. process the next 200 indicies with u and append to y
 notEnough=: > +/                                 NB. is left arg greater than sum of right arg
