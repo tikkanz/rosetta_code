@@ -22,12 +22,12 @@ getIdx=: {. I.        NB. get indicies of first x ones in boolean y
 process_more=: adverb def '] , [: u (i.200) + #@]'  NB. process the next 200 indicies with u and append to y
 while=: conjunction def 'u^:v^:_'     NB. repeat u while v is true
 
-get_N_isSqrNotCube=: isSqNotCube process_more while notEnough isSqNotCube
-get_N_SqrNotCube=: [ getIdx get_N_isSqrNotCube
+process_until_enough=: adverb def 'u process_more while notEnough u'
 
 Note 'testing'
-30 (isSqNotCube process_more while notEnough) 0
-30 ([ getIdx isSqNotCube process_more while notEnough) 0
-30 ([ getIdx [ isSqNotCube process_more while notEnough isSqNotCube@]) 0
-30 get_N_SqrNotCube 0
+30 (isSqrNotCube process_more while notEnough) 0
+30 ([ getIdx isSqrNotCube process_more while notEnough) 0
+30 ([ getIdx [ isSqrNotCube process_more while notEnough isSqrNotCube@]) 0
+30 isSqrNotCube process_until_enough 0
+30 ([ getIdx isSqrNotCube process_until_enough) 0
 )
