@@ -6,7 +6,7 @@ isSqrFree=: (#@~. = #)@q:     NB. are there duplicates in the prime factors of a
 filter=: adverb def ' #~ u'   NB. filter right arg using verb to left
 countSqrFree=: +/@:isSqrFree
 
-thru=: <. + i.@(+ *)@-~       NB. helper verb
+thru=: <. + [: i. -~ + _1 ^ > NB. helper verb
 
 Note 'Examples'
 isSqrFree filter 1 thru 145   NB. returns all results but not all are displayed
