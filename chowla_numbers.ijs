@@ -2,6 +2,8 @@ Note 'Chowla Numbers'
 https://rosettacode.org/wiki/Chowla_numbers#J
 )
 
+uniqFactors=: (1&, ~.@-.~ (#:@i.@(2&^)@# */ .(^~) ])@q:)
+uniqFactors=: ~.@(}.@}:@#:@i.@(2&^)@# */ .(^~) ])@q:
 uniqFactors=: (}.@i.@# -.&0@~.@,@(*/\ , */\.) ])@q: 
 chowla=: +/@uniqFactors
 
