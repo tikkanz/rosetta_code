@@ -9,20 +9,17 @@ Quantities=:   4000000000000000      2
 Prices=:   x:        5.50          2.86
 Tax_rate=: x:  0.0765
 
-Values=: Quantities * Prices
-Subtotal=: +/ Values
-Tax=: Tax_rate * Subtotal
-Total=: Subtotal + Tax
- 
-OutputTemplate=: noun define
-Item         Price             Quantity          Value
-%9s %8.2f %20d %22.2f
-%9s %8.2f %20d %22.2f
-                               -------------------------------
-                               Subtotal: %21.2f
-                                    Tax: %21.2f
-                                  Total: %21.2f
+makeBill=: verb define
+  'items prices quantities'=. y
+  values=. prices * quantities
+  subtotal=. +/ values
+  tax=. Tax_rate * subtotal
+  total=. subtotal + tax
+
+  '%9s %8s %20s %22s' printf ;:'Item Price Quantity Value'
+  '%9s %8.2f %20d %22.2f' printf"1 items ,. <"0 prices ,. quantities ,. values
+  '%62s' printf <'-------------------------------'
+  '%40s %21.2f' printf"1 (;:'Subtotal: Tax: Total:') ,. subtotal;tax;total
 )
- 
-Vals=: (,Items ,. (<"0 Prices ,. Quantities ,. Values)) , Subtotal;Tax;Total
-OutputTemplate printf Vals
+
+makeBill Items;Prices;Quantities
