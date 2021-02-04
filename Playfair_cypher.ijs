@@ -12,7 +12,7 @@ choose=: {{
 restrict=: ] -. -.~
 dedouble=: {{
   while. +./ msk=. =/"1 ] _2 ]\ y do.
-    y =. (1 2 p. I. msk) ({. , 'X' , }.) y
+    y =. (1 2 p. {. I. msk) ({. , 'X' , }.) y
   end.
   y
 }}
