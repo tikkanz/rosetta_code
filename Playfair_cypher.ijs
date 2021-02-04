@@ -2,25 +2,24 @@ Note 'Playfair cypher'
 https://rosettacode.org/wiki/Playfair_cypher#J
 )
 
-choose=: verb define
+choose=: {{
   sel=. 'Q' e. y
   alph=: (sel { 'JQ') -.~ a. {~ 65 + i.26
   norm=: [: dedouble alph restrict ('I' I.@:=&'J'@]} ])`(-.&'Q')@.sel@toupper
   ''
-)
+}}
 
 restrict=: ] -. -.~
-dedouble=: verb define
+dedouble=: {{
   while. +./ msk=. =/"1 ] _2 ]\ y do.
     y =. (1 2 p. I. msk) ({. , 'X' , }.) y
   end.
   y
-)
+}}
 
 choose 'Q'
  
- 
-setkey=: verb define
+setkey=: {{
   key=. ~.norm y,alph
   ref=: ,/ 2{."1 ~."1 (,"0/~ alph) ,"1 norm 'XQV'
   mode=. #. =/"2 inds=. 5 5#:key i. ref
@@ -29,19 +28,13 @@ setkey=: verb define
   inds2=. 5|0 1 +"1 inds NB. same row
   alt=: key {~ 5 #. mode {"_1 inds0 ,"2 3 inds1 ,:"2 inds2
   i. 0 0
-)
+}}
  
-pairs=: verb define 
-  2{."1 -.&' '"1 ~."1 (_2]\ norm y) ,"1 'XQV'
-)
+pairs=: {{ 2{."1 -.&' '"1 ~."1 (_2]\ norm y) ,"1 'XQV' }}
  
-encrypt=: verb define
-  ;:inv ;/ alt{~ref i. pairs y
-)
+encrypt=: {{ ;:inv ;/ alt{~ref i. pairs y }}
  
-decrypt=: verb define
-  ;:inv ;/ ref{~alt i. pairs y
-)
+decrypt=: {{ ;:inv ;/ ref{~alt i. pairs y }}
 
 Note 'Required Example'
    choose 'IJ'
