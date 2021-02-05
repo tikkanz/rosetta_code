@@ -10,12 +10,10 @@ choose=: {{
 }}
 
 restrict=: ] -. -.~
-dedouble=: {{
-  while. +./ msk=. =/"1 ] _2 ]\ y do.
-    y =. (1 + 2 * {. I. msk) ({. , 'X' , }.) y
-  end.
-  y
-}}
+
+getidx=: 1 >:@+:@i.~ =/"1@(_2 ]\ ])
+splitDigraph=: ({. , 'X' , }.)~ getidx
+dedouble=: dtb@(>:@# {. splitDigraph)^:_
 
 choose 'Q'
  
@@ -63,6 +61,10 @@ dd_pj2=: (' ' -.~ ,)@:(_2&(,`([,'X',])@.=/\))^:_
 
 dd_md=: dtb@:((] ({.~ , 'X' , }.~) 1 (1 + 2 * i.)~ _2 =/\ ]) {.~ >:@#) ::($:@:,&' ')
 dd_md2=: dd_md^:_
+
+getidx=: 1 >:@+:@i.~ =/"1@(_2 ]\ ])
+splitDigraph=: ({. , 'X' , }.)~ getidx
+dedouble=: dtb@(>:@# {. splitDigraph)^:_
 
 showDigraphs=: dquote@(',' joinstring _2 <\ ])
 
