@@ -1,5 +1,5 @@
 Note 'Square-free integers'
-http://rosettacode.org/wiki/Square-free_integers#J
+https://rosettacode.org/wiki/Square-free_integers#J
 )
 
 isSqrFree=: (#@~. = #)@q:     NB. are there duplicates in the prime factors of a number

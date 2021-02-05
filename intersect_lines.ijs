@@ -1,5 +1,5 @@
 Note 'Find the intersection of two lines'
-http://rosettacode.org/wiki/Find_the_intersection_of_two_lines#J
+https://rosettacode.org/wiki/Find_the_intersection_of_two_lines#J
 )
 
 lines=: noun define

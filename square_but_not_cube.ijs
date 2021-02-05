@@ -1,5 +1,5 @@
 Note 'Square but not cube'
-http://rosettacode.org/wiki/Square_but_not_cube#J
+https://rosettacode.org/wiki/Square_but_not_cube#J
 )
 
 isSqrNotCubeofInt=: (*. -.)/@(= <.)@(2 3 %:/ ])

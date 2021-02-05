@@ -1,5 +1,5 @@
 Note 'Damm algorithm'
-http://rosettacode.org/wiki/Damm_algorithm#J
+https://rosettacode.org/wiki/Damm_algorithm#J
 )
 
 OpTbl=: _99 ". ];._2 noun define

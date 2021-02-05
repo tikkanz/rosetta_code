@@ -1,5 +1,5 @@
 Note 'Find intersection of two lines'
-http://rosettacode.org/wiki/Verify_distribution_uniformity/Chi-squared_test#J
+https://rosettacode.org/wiki/Verify_distribution_uniformity/Chi-squared_test#J
 )
 
 NB. Tacit

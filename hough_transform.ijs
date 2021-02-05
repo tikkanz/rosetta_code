@@ -1,5 +1,5 @@
 Note 'Hough transform'
-http://rosettacode.org/wiki/Hough_transform#J
+https://rosettacode.org/wiki/Hough_transform#J
 )
 
 NB.*houghTransform v Produces a density plot of image y in hough space
@@ -19,6 +19,6 @@ Note 'Example Use:'
    require 'media/platimg'  NB. required prior to J8
    require 'web/gethttp graphics/pplatimg'
    Img=: readimg_pplatimg_ jpath 'resource/File_Pentagon.png'
-   Img2=: getimg_pplatimg_ gethttp 'http://rosettacode.org/mw/images/c/c6/Pentagon.png'
+   Img2=: getimg_pplatimg_ gethttp 'https://rosettacode.org/mw/images/c/c6/Pentagon.png'
    viewmat 460 360 houghTransform _1 > Img
 )

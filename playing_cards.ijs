@@ -1,5 +1,5 @@
 Note 'Playing cards'
-http://rosettacode.org/wiki/Playing_cards#J
+https://rosettacode.org/wiki/Playing_cards#J
 )
 
 NB. playingcards.ijs

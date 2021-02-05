@@ -1,5 +1,5 @@
 Note 'Multiple regression'
-http://rosettacode.org/wiki/Multiple_regression#J
+https://rosettacode.org/wiki/Multiple_regression#J
 )
 
    NB. Wikipedia data
