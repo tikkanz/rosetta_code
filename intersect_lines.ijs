@@ -2,7 +2,10 @@ Note 'Find the intersection of two lines'
 https://rosettacode.org/wiki/Find_the_intersection_of_two_lines#J
 )
 
-lines=: noun define
+NB. this script shows development of various solutions
+NB. see `find_intersection_two_lines.ijs` for current rosettacode implementation
+
+lines=: _2 ]\"1 (0&".);._2 {{)n
 4 0 6 10
 0 3 10 7
 0 3 10 7.1
@@ -10,9 +13,9 @@ lines=: noun define
 1 2 4 5
 1 _1 4 4
 2 5 3 _2
-)
+}}
 
-'line1 line2 line3 line4 line5 line6 line7'=: _2 ]\"1 ] 0 ". ];._2  lines
+'line1 line2 line3 line4 line5 line6 line7'=: lines
 
 det=: -/ .*
 coeffLine=: -/ , det   NB. gets coefficents A, B & C (i.e. Ax + By = C) from a line defined by start and end points ((x,y) ,: (x,y))

@@ -1,5 +1,5 @@
-Note 'Find intersection of two lines'
-https://rosettacode.org/mw/index.php?title=Find_the_intersection_of_two_lines#J
+Note 'Find the intersection of two lines'
+https://rosettacode.org/wiki/Find_the_intersection_of_two_lines#J
 )
 
 det=: -/ .*   NB. calculate determinant
