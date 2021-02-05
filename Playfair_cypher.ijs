@@ -12,7 +12,7 @@ choose=: {{
 restrict=: ] -. -.~
 dedouble=: {{
   while. +./ msk=. =/"1 ] _2 ]\ y do.
-    y =. (1 2 p. {. I. msk) ({. , 'X' , }.) y
+    y =. (1 + 2 * {. I. msk) ({. , 'X' , }.) y
   end.
   y
 }}
@@ -44,4 +44,34 @@ Note 'Required Example'
 BM OD ZB XD NA BE KU DM UI XM MO UV IF
    decrypt 'BM OD ZB XD NA BE KU DM UI XM MO UV IF'
 HI DE TH EG OL DI NT HE TR EX ES TU MP
+)
+
+Note 'Other implementations of dedouble from J forum'
+dd_bg=: {{ ((+where&<)#y) {. ({.&y ,'X', }.&y) where =. >: +: 1 i.~ _2 =/\ y,'XX',(2|#y){.'X' }}^:_
+dd_bg=: {{ ((+ idx&<)#y) {. y ({. ,'X', }.)~ idx =. >:+: 1 i.~ (=/"1) _2 ]\y }}^:_
+dd_bg=: {{ 
+  idx =. >:+: 1 i.~ (=/"1) _2 ]\y
+  idx ((#@] + (< #)) {. ({. ,'X', }.)) y
+}}^:_
+
+
+digra=: * 2 | i.@# + +/\
+dd_rm=: #!.'X'~ 1 j. [: digra # {. }. = }:
+
+dd_pj=: ;@:(_2&(,`([,'X',])@.=/each@<\))^:_
+dd_pj2=: (' ' -.~ ,)@:(_2&(,`([,'X',])@.=/\))^:_
+
+dd_md=: dtb@:((] ({.~ , 'X' , }.~) 1 (1 + 2 * i.)~ _2 =/\ ]) {.~ >:@#) ::($:@:,&' ')
+dd_md2=: dd_md^:_
+
+showDigraphs=: dquote@(',' joinstring _2 <\ ])
+
+'data1 soln1'=: 'THEEQUICKBROWFFOX';'THEXEQUICKBROWFXFOX'
+'data2 soln2'=: 'THEEQUICKBROWFOOX';'THEXEQUICKBROWFOOX'
+'data3 soln3'=: 'TTHEEQUICKBROWFFOX';'TXTHEXEQUICKBROWFXFOX'
+'data4 soln4'=: 'TTHEEQUICKBROWFOOOX';'TXTHEXEQUICKBROWFOOXOX'
+'data5 soln5'=: '';''
+
+([: showDigraphs dd_bg) &> data1;data2;data3;data4;data5
+([: showDigraphs dd_md^:_) &> data1;data2;data3;data4;data5
 )
