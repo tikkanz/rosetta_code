@@ -12,8 +12,9 @@ choose=: {{
 restrict=: ] -. -.~
 
 getidx=: 1 >:@+:@i.~ =/"1@(_2 ]\ ])
-splitDigraph=: ({. , 'X' , }.)~ getidx
-dedouble=: dtb@(>:@# {. splitDigraph)^:_
+
+splitDigraph=: ,`([,'X',])@.((= {.) *. 2 | #@])   NB. split next digraph if repeated letter
+dedouble=: splitDigraph/&.|.                      NB. progressively split digraphs in string
 
 choose 'Q'
  
@@ -45,13 +46,14 @@ HI DE TH EG OL DI NT HE TR EX ES TU MP
 )
 
 Note 'Other implementations of dedouble from J forum'
+https://www.jsoftware.com/pipermail/programming/2021-February/057504.html
+
 dd_bg=: {{ ((+where&<)#y) {. ({.&y ,'X', }.&y) where =. >: +: 1 i.~ _2 =/\ y,'XX',(2|#y){.'X' }}^:_
 dd_bg=: {{ ((+ idx&<)#y) {. y ({. ,'X', }.)~ idx =. >:+: 1 i.~ (=/"1) _2 ]\y }}^:_
 dd_bg=: {{ 
   idx =. >:+: 1 i.~ (=/"1) _2 ]\y
   idx ((#@] + (< #)) {. ({. ,'X', }.)) y
 }}^:_
-
 
 digra=: * 2 | i.@# + +/\
 dd_rm=: #!.'X'~ 1 j. [: digra # {. }. = }:
@@ -63,8 +65,16 @@ dd_md=: dtb@:((] ({.~ , 'X' , }.~) 1 (1 + 2 * i.)~ _2 =/\ ]) {.~ >:@#) ::($:@:,&
 dd_md2=: dd_md^:_
 
 getidx=: 1 >:@+:@i.~ =/"1@(_2 ]\ ])
-splitDigraph=: ({. , 'X' , }.)~ getidx
-dedouble=: dtb@(>:@# {. splitDigraph)^:_
+splitDigraph_rs=: ({. , 'X' , }.)~ getidx
+dd_rs=: dtb@(>:@# {. splitDigraph)^:_
+
+dd_rb=: {{ ((,`([,x,])@.(={.))`,@.(0=2|#@]))/&.|. y }}
+dd_hr=: {{ (,`([,x,])@.((= {.) *. 2 | #@]))/&.|. }}
+
+splitDigraph=: ,`([,'X',])@.((= {.) *. 2 | #@])
+dedouble=: splitDigraph/&.|.   NB. domain error on empty string
+ifany =: {{ u^:(*@#@]) }}
+dedouble_empty=: splitDigraph/&.|. ifany
 
 showDigraphs=: dquote@(',' joinstring _2 <\ ])
 
@@ -76,4 +86,5 @@ showDigraphs=: dquote@(',' joinstring _2 <\ ])
 
 ([: showDigraphs dd_bg) &> data1;data2;data3;data4;data5
 ([: showDigraphs dd_md^:_) &> data1;data2;data3;data4;data5
+([: showDigraphs dedouble) &> data1;data2;data3;data4;data5
 )
