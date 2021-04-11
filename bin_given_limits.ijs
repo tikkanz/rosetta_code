@@ -13,13 +13,13 @@ binnedDataX =: {{
   x (Idotr (u@}./.)&(bidx&,) ]) y     NB. apply u to data in each bin after dropping first value
 }}
 
-require 'format/printf'
 printBinCounts =: {{
   counts =. y
-  '           < %3d = %2d' printf ({. x) , {. counts
-  '>= %3d and < %3d = %2d' printf ( 2 ]\ x) ,. }.}: counts
-  '>= %3d           = %2d' printf ({: x) , {: counts
+  '%2d   in [ -∞, %3d)' printf ({. counts) , {. x
+  '%2d   in [%3d, %3d)' printf (}.}: counts) ,. 2 ]\ x
+  '%2d   in [%3d, ∞]' printf ({: counts) , {: x
 }}
+
 
 limits1=: 23 37 43 53 67 83
 data1=: , 0&".;._2 {{)n
