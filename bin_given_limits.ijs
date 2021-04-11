@@ -2,28 +2,20 @@ Note 'Bin given limits'
 https://rosettacode.org/wiki/Bin_given_limits#J
 )
 
-binData =: {{
-  lim =. x   NB. if <= >
-  lastbinval=. >: >./ lim  NB. if <= >
-  limdat =. y (,~ ,&lastbinval) lim
-  lim (I. <@}./. ]) limdat
+NB. from https://code.jsoftware.com/wiki/User:Brian_Schott/Histogram
+Idotr=: |.@[ (#@[ - I.) ]         NB. reverses order of limits to obtain intervals closed on left, open on right (>= y <) (use I. for > y <=)
+countBins=: <:@(#/.~)@(i.@>:@#@[ , Idotr)
+
+binnedData=: {{ ((i.@>:@#@[ , Idotr) (u@}./.) i.@>:@#@[ , ]) }}
+
+binnedDataX =: {{
+  bidx=. i.@>:@# x                    NB. indicies of bins
+  x (Idotr (u@}./.)&(bidx&,) ]) y     NB. apply u to data in each bin after dropping first value
 }}
-
-binDataX =: {{
-  lim =. |. x                     NB. reverse order of limits if < >= (not required if <= >)
-  lastbinval=. <: <./lim          NB. >: >./ lim  (if <= >)
-  limdat =. lim , lastbinval , y  NB. prepend data with a value for each bin. Orders the bins and ensures all are represented in result
-  |. lim (I. <@}./. ]) limdat     NB. box data in bins, dropping first value from each bin, reverse order of bins
-}}
-
-binData=: |.@(|.@[ ([ (I. <@}./. ]) ] ,~ [ , <:@:<./@[) ])
-binData=: |.@((] (I. <@}./. ]) [ ,~ ] , <:@:<./@]) |.)~
-
-countBins=: #&>
 
 require 'format/printf'
 printBinCounts =: {{
-  counts =. countBins y
+  counts =. y
   '           < %3d = %2d' printf ({. x) , {. counts
   '>= %3d and < %3d = %2d' printf ( 2 ]\ x) ,. }.}: counts
   '>= %3d           = %2d' printf ({: x) , {: counts
@@ -50,7 +42,7 @@ data2=: , 0&".;._2 {{)n
 }}
 
 Note 'Required Examples'
-limits1 binData data1
-countBins limits1 binData data1
-limits2 printBinCounts limits2 binData data2
+limits1 < binnedData data1  NB. box binned data
+limits1 # binnedData data1  NB. count binned data
+limits2 printBinCounts limits2 # binnedData data2
 )
