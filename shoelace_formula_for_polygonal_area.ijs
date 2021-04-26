@@ -1,5 +1,5 @@
 Note 'Shoelace formula for polygonal area'
-http://rosettacode.org/wiki/Shoelace_formula_for_polygonal_area#J
+https://rosettacode.org/wiki/Shoelace_formula_for_polygonal_area#J
 )
 
 shoelaceX0=: verb define

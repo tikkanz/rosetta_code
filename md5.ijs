@@ -1,5 +1,5 @@
 Note 'MD4'
-http://rosettacode.org/wiki/MD4#J
+https://rosettacode.org/wiki/MD4#J
 )
 
    require 'ide/qt'

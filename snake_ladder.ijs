@@ -1,5 +1,5 @@
 Note 'Snake and Ladder'
-http://rosettacode.org/wiki/Snake_And_Ladder#J
+https://rosettacode.org/wiki/Snake_And_Ladder#J
 )
 
 NB. Counters start off the board

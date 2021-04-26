@@ -1,5 +1,5 @@
 Note 'Stem and Leaf'
-http://rosettacode.org/wiki/Stem-and-leaf_plot#J
+https://rosettacode.org/wiki/Stem-and-leaf_plot#J
 )
 
 NB. Tacit

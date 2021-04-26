@@ -1,8 +1,8 @@
-Note 'Find intersection of two lines'
+Note 'Chi-squared test'
 https://rosettacode.org/wiki/Verify_distribution_uniformity/Chi-squared_test#J
 )
 
-NB. Tacit
+NB. Solution (Tacit)
 require 'stats/base'
  
 countCats=: #@~.                    NB. counts the number of unique items
@@ -17,10 +17,9 @@ NB. y is: distribution to test
 NB. x is: optionally specify number of categories possible
 isUniform=: (countCats $: ]) : (0.95 > calcDf chisqcdf :: 1: calcX2)
 
-
-NB. Explicit
+NB. Solution (Explicit)
 require 'stats/base'
-
+ 
 NB.*isUniformX v Tests (5%) whether y is uniformly distributed
 NB. result is: boolean describing if distribution y is uniform
 NB. y is: distribution to test
@@ -39,8 +38,12 @@ isUniformX=: verb define
 Note 'Example Usage'
    FairDistrib=:      1e6 ?@$ 5
    UnfairDistrib=: (9.5e5 ?@$ 5) , (5e4 ?@$ 4)
-   isUniformX FairDistrib    NB. 1
-   isUniformX UnfairDistrib  NB. 0
+   isUniformX FairDistrib
+1
+   isUniformX UnfairDistrib
+0
    isUniform 4 4 4 5 5 5 5 5 5 5     NB. uniform if only 2 categories possible
+1
    4 isUniform 4 4 4 5 5 5 5 5 5 5   NB. not uniform if 4 categories possible
+0
 )

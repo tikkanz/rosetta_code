@@ -1,5 +1,5 @@
 Note 'Zhang-Suen thinning algorithm'
-http://rosettacode.org/wiki/Zhang-Suen_thinning_algorithm#J
+https://rosettacode.org/wiki/Zhang-Suen_thinning_algorithm#J
 )
 
 NB. Tacit

@@ -1,5 +1,5 @@
 Note 'Bitmap'
-http://rosettacode.org/wiki/Bitmap/
+https://rosettacode.org/wiki/Bitmap/
 )
 
 makeRGB=: 0&$: : (($,)~ ,&3)
@@ -41,7 +41,7 @@ NB. viewRGB myimg
 
 
 Note 'Write a PPM'
-NB. http://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#J
+NB. https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#J
 )
 
 require 'files'
@@ -60,7 +60,7 @@ Note 'Example Usage'
 )
 
 Note 'Read a PPM file'
-http://rosettacode.org/wiki/Bitmap/Read_a_PPM_file#J
+https://rosettacode.org/wiki/Bitmap/Read_a_PPM_file#J
 )
 
 require 'files'
@@ -81,7 +81,7 @@ myimgGray writeppm jpath '~temp/myimgGray.ppm'
 )
 
 Note 'Grayscale_image'
-http://rosettacode.org/wiki/Grayscale_image#J
+https://rosettacode.org/wiki/Grayscale_image#J
 )
 
 NB. converts the image to grayscale according to formula

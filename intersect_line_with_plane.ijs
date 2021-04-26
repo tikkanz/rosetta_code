@@ -1,5 +1,5 @@
 Note 'Find intersection of line with plane'
-http://rosettacode.org/wiki/Find_the_intersection_of_a_line_with_a_plane
+https://rosettacode.org/wiki/Find_the_intersection_of_a_line_with_a_plane
 )
 
 intersectLinePlane=: dyad define

@@ -1,5 +1,5 @@
 Note 'Law of cosines - triples'
-http://rosettacode.org/wiki/Law_of_cosines_-_triples#J
+https://rosettacode.org/wiki/Law_of_cosines_-_triples#J
 )
 
 load 'trig stats'

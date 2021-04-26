@@ -1,5 +1,5 @@
 Note 'Midpoint circle algorithm'
-http://rosettacode.org/wiki/Bitmap/Midpoint_circle_algorithm#J
+https://rosettacode.org/wiki/Bitmap/Midpoint_circle_algorithm#J
 )
 
 load 'bitmap.ijs'

@@ -1,5 +1,5 @@
 Note 'Barnsley fern'
-http://rosettacode.org/wiki/Barnsley_fern#J
+https://rosettacode.org/wiki/Barnsley_fern#J
 )
 
 require 'plot'

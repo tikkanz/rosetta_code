@@ -1,5 +1,5 @@
 Note 'Animate a Pendulum'
-http://rosettacode.org/wiki/Animate_a_pendulum#J
+https://rosettacode.org/wiki/Animate_a_pendulum#J
 )
 
 require 'gl2 trig'
