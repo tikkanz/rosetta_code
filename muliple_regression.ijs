@@ -35,7 +35,17 @@ NB. To confirm:
 128.814 _143.163 61.9606
 
 NB. LAPACK routines are also available via the Addon math/lapack
+NB. pre-j9
    load 'math/lapack'
    load 'math/lapack/gels'
    gels_jlapack_ X;y
 128.813 _143.162 61.9603
+Note 'post-j9'
+From j9 math/lapack was replaced by math/lapack2 which only really has the
+bindings to the functions, i.e. doesn't include the infrastructure to simplify 
+the interface. Some of that old machinery now exists in the test folder but using
+lapack now requires a significant investment.
+)
+
+
+
