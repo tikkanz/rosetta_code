@@ -13,6 +13,7 @@ binnedDataX =: {{
   x (Idotr (u@}./.)&(bidx&,) ]) y     NB. apply u to data in each bin after dropping first value
 }}
 
+require 'format/printf'
 printBinCounts =: {{
   counts =. y
   '%2d   in [ -∞, %3d)' printf ({. counts) , {. x
