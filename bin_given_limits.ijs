@@ -4,12 +4,12 @@ https://rosettacode.org/wiki/Bin_given_limits#J
 
 NB. from https://code.jsoftware.com/wiki/User:Brian_Schott/Histogram
 Idotr=: |.@[ (#@[ - I.) ]         NB. reverses order of limits to obtain intervals closed on left, open on right (>= y <) (use I. for > y <=)
-countBins=: <:@(#/.~)@(i.@>:@#@[ , Idotr)
+countBins=: <:@(#/.~)@(0,#\@[ , Idotr)
 
-binnedData=: {{ ((i.@>:@#@[ , Idotr) (u@}./.) i.@>:@#@[ , ]) }}
+binnedData=: {{ ((0,#\@[ , Idotr) (u@}./.) 0,#\@[ , ]) }}
 
 binnedDataX =: {{
-  bidx=. i.@>:@# x                    NB. indicies of bins
+  bidx=. 0,#\ x                       NB. indicies of bins
   x (Idotr (u@}./.)&(bidx&,) ]) y     NB. apply u to data in each bin after dropping first value
 }}
 
@@ -46,4 +46,9 @@ Note 'Required Examples'
 limits1 < binnedData data1  NB. box binned data
 limits1 # binnedData data1  NB. count binned data
 limits2 printBinCounts limits2 # binnedData data2
+)
+
+Note 'Other testing'
+limits1 countBins data1      NB. count binned data
+limits1 # binnedDataX data1  NB. count binned data
 )
